@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create new</title>
+</head>
+<body>
+    <form action="/listing" method="post" class="needs-validation" novalidate>
+        <input type="text" name="listing[title]" placeholder="Enter title" required>
+        <br><br>
+        <textarea type="text" name="listing[description]" placeholder="Enter description" required></textarea>
+        <br><br>
+        <input type="text" name="listing[image]" placeholder="Enter image link">
+        <br><br>
+        <input type="text" name="listing[price]" placeholder="Enter price" required>
+        <br><br>
+        <input type="text" name="listing[location]" placeholder="Enter location" required>
+        <br><br>
+        <input type="text" name="listing[country]" placeholder="Enter country" required>
+        <br><br>
+        <button>ADD</button>
+    </form>
+    <script>
+        (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+    </script>
+</body>
+</html>
